@@ -1,0 +1,19 @@
+{
+  "name": "cowin-poller",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "chalk": "^4.1.1",
+    "markdown-table": "^3.0.0",
+    "node-fetch": "^2.6.1",
+    "play-sound": "^1.1.3"
+  }
+}
