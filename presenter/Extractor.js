@@ -1,5 +1,3 @@
-import chalk from 'chalk'
-
 const pincodes = [431001, 431002, 431003, 431004, 431005, 431006]
 const minAgeLimit = 18
 
