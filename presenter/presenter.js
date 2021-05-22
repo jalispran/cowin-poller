@@ -10,6 +10,9 @@ export default function present(aray) {
     });
 
     data = data.filter(e => e.length > 0)
+    if (data.length <= 0) {
+        return
+    }
 
     data = [header, ...data]
 
