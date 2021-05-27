@@ -3,16 +3,20 @@ import chalk from 'chalk'
 
 import present from './presenter/presenter.js'
 import Extractor, {minAgeLimit, pincodes} from './presenter/Extractor.js'
+import District from './assets/Districts.json'
 
-console.log(`Trying to find slots for ${chalk.bgGreenBright(`${minAgeLimit}+`)} in ${chalk.grey(pincodes)} for date on or after ${chalk.bold.underline(getTodayAsString())}`)
+console.log(`Trying to find slots for ${chalk.bgGreenBright(`${minAgeLimit}+`)} in ${chalk.grey(`[${pincodes}]`)} for date on or after ${chalk.bold.underline(getTodayAsString())}`)
 console.log('Polling Started. You will be notified when slots are available. Turn the volume up.')
 
-setInterval(callCowinServer, 5000)
+const DISTRICT_ID = District.Maharashtra['Aurangabad ']
+const POLLING_FREQUENCY = 5000  // This is in milliseconds
+
+setInterval(callCowinServer, POLLING_FREQUENCY)
 
 function callCowinServer() {
     var config = {
         method: 'get',
-        url: `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=397&date=${getTodayAsString()}`,
+        url: `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${DISTRICT_ID}&date=${getTodayAsString()}`,
         headers: { 
           'accept-encoding': 'gzip, deflate, br', 
           'accept-language': 'en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7,hi;q=0.6', 

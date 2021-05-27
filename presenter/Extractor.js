@@ -1,6 +1,6 @@
 import notify from '../notifier/Notify.js'
 
-export const pincodes = [431001, 431002, 431003, 431004, 431005, 431006]
+export const pincodes = []
 export const minAgeLimit = 18
 
 export default class Extractor {
@@ -25,8 +25,10 @@ export default class Extractor {
             return []
         }
 
-        if (!pincodes.includes(this.pincode)) {
-            return []
+        if (pincodes.length !== 0) {
+            if (!pincodes.includes(this.pincode)) {
+                return []
+            }
         }
 
         if (this.min_age_limit !== minAgeLimit) {
