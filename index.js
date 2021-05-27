@@ -1,8 +1,11 @@
 import axios from 'axios'
-import present from './presenter/presenter.js'
-import Extractor from './presenter/Extractor.js'
+import chalk from 'chalk'
 
-console.log('Polling Started')
+import present from './presenter/presenter.js'
+import Extractor, {minAgeLimit, pincodes} from './presenter/Extractor.js'
+
+console.log(`Trying to find slots for ${chalk.bgGreenBright(`${minAgeLimit}+`)} in ${chalk.grey(pincodes)} for date on or after ${chalk.bold.underline(getTodayAsString())}`)
+console.log('Polling Started. You will be notified when slots are available. Turn the volume up.')
 
 setInterval(callCowinServer, 5000)
 
